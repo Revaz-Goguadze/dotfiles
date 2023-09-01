@@ -7,10 +7,16 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Overview](#overview)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+  - [Customize Your Desktop](#customize-your-desktop)
+  - [Modify Dotfiles](#modify-dotfiles)
+  - [Install Additional Packages](#install-additional-packages)
+  - [Boost Productivity](#boost-productivity)
+  - [Share Your Setup](#share-your-setup)
 - [Customization](#customization)
 - [Contributing](#contributing)
 - [License](#license)
@@ -39,39 +45,54 @@ Welcome to **My Dots**, your one-stop solution for a beautifully customized Linu
 
 ## Installation
 
-**1. Clone the Repository**
+1. **Clone the Repository**
 
-```bash
-git clone https://github.com/Revaz-Goguadze/mydots.git
-2. Run the Installation Script
+   ```bash
+   git clone https://github.com/Revaz-Goguadze/mydots.git
+   cd mydots
+2. **Run the Installation Script**
+    ```bash
+    cd mydots
+    ./install.sh
+    The installation script will handle the configuration of your dotfiles and install necessary packages if you're on Arch Linux.
+3. **Enjoy Your Customized Linux Setup!**
 
-bash
-Copy code
-cd mydots
-./install.sh
-The installation script will handle the configuration of your dotfiles and install necessary packages if you're on Arch Linux.
+## Usage
 
-3. Enjoy Your Customized Linux Setup!
-
-Usage
 Your newly configured Linux environment is ready to go! Here are some common tasks to get you started:
 
-🔍 Customize your desktop with the pre-installed themes and wallpapers.
-🖥️ Modify dotfiles in the .config, .fonts, and .icons directories to suit your preferences.
-📦 Use the arch-packages-install.sh script to install additional Arch Linux packages effortlessly.
-🚀 Explore productivity-enhancing keyboard shortcuts and settings.
-🎨 Share your customized setup with the community!
-Customization
-Feel free to make these dotfiles truly your own! Modify and personalize the configurations to match your unique style and preferences. Experiment with different themes, fonts, and icons until you achieve your ideal Linux environment.
+### Customize Your Desktop
 
-Contributing
-Contributions are welcome! If you have improvements, new features, or bug fixes to share, please open an issue or create a pull request. Let's make My Dots even better together.
+🔍 Explore and personalize your desktop environment with the pre-installed themes and wallpapers.
 
-License
+### Modify Dotfiles
+
+🖥️ Customize the configuration of various applications by editing the dotfiles found in the `.config`, `.fonts`, and `.icons` directories to suit your preferences.
+
+### Install Additional Packages
+
+📦 Use the `arch-packages-install.sh` script to effortlessly install additional Arch Linux packages, enhancing your system's capabilities.
+
+### Boost Productivity
+
+🚀 Discover productivity-enhancing keyboard shortcuts and settings to optimize your workflow and make the most out of your Linux setup.
+
+### Share Your Setup
+
+🎨 Share your customized Linux environment with the community! Show off your themes, configurations, and dotfiles to inspire others.
+
+## Customization
+
+Feel free to make these dotfiles truly your own! Personalize the configurations to match your unique style and preferences. Experiment with different themes, fonts, and icons until you achieve your ideal Linux environment.
+
+## Contributing
+
+Contributions are welcome! If you have improvements, new features, or bug fixes to share, please open an issue or create a pull request. Let's collaborate to make **My Dots** even better together.
+
+## License
+
 This project is licensed under the MIT License.
 
+---
 
-  Made with ❤️ by [Your Name]
-
-```
-Replace [Your Name] with your name or preferred attribution. This README uses Markdown for formatting, and you can copy and paste it into your repository's README.md file. Additionally, you can further customize the styles, fonts, colors, and emojis to match your aesthetic preferences.
+Made with ❤️ by Revaz Goguadze
