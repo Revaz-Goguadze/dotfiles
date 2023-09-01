@@ -1,0 +1,255 @@
+# See http://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+#default keyboard repeat is too slow for me
+exec xset r 8 rate 120 50
+#AUTOSTART STUFF
+exec --no-startup-id bash ~/dotfiles/scripts/display_setup.sh
+exec_always --no-startup-id feh --bg-scale ~/Downloads/wallhaven-1p398w_1920x1080.png
+exec_always --no-startup-id polybar
+exec_always --no-startup-id picom
+exec_always --no-startup-id xinput set-button-map 9 1 3 2 4 5 6 7 8 9
+exec_always --no-startup-id xinput set-button-map 10 1 3 2 4 5 6 7 8 9
+exec_always --no-startup-id safeeyes
+
+#Font for window titles.
+font pango:Hack Nerd Font Regular 14
+#Colors
+set $back               #282C34
+set $primary            #ABB2BF
+set $secondary          #0FE0C9
+set $black              #282A2E
+set $grey               #3E4452
+set $white              #C5C8C6
+
+# class                 border   backgr.  text    indicator child_border
+client.focused          #3E4452  #3E4452  $white  #2e9ef4   #3E4452
+client.focused_inactive $back    $back    $white  #484e50   $back
+client.unfocused        $back    $back    $grey   #292d2e   $back
+client.urgent           $back    #900000  $white  #900000   #900000
+client.placeholder      $back    #0c0c0c  $white  #000000   #0c0c0c
+client.background       $back
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+popup_during_fullscreen smart
+bindsym $mod+Return exec alacritty
+#mouse_warping none
+
+for_window [class="^.*"] border pixel 2
+for_window [title="^Telegram"] floating enable
+for_window [class="KeeWeb"] floating enable
+for_window [class="Slack"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [title="^galculator"] floating enable
+for_window [class="^Microsoft Teams - Preview"] floating enable
+
+# Scratchpad stuff
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+s move scratchpad
+bindsym $mod+a [title="^Telegram"] scratchpad show
+bindsym $mod+s [class="Slack"] scratchpad show
+bindsym $mod+z [class="Alacritty"] scratchpad show
+bindsym $mod+Shift+z scratchpad show
+
+# i3-gaps stuff
+gaps inner 12
+gaps outer 12
+smart_borders on
+new_window none
+
+bindsym $mod+g exec ~/dotfiles/scripts/toggle_gaps.sh
+#edit gaps mode
+#########################################################################
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+##########################################################################
+
+#custom app commands (?i) just means case insenitive..
+#for_window [class="(?i)feh"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable
+#for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [title="About Mozilla Firefox"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+# kill focused window
+bindsym $mod+q kill
+
+# start rofi (program launcher)
+bindsym $mod+Shift+d exec --no-startup-id rofi -monitor -1 -show drun
+# start rofi (window switcher)
+bindsym $mod+d exec --no-startup-id rofi -monitor -1 -show window
+# thunar
+bindsym $mod+Shift+Return exec thunar
+#use "xmodmap -pke" to get list of special keys
+#custom special key fixes
+
+# logout
+bindsym $mod+x exec archlinux-logout
+
+#audio controls
+bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +5
+bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -5
+bindsym XF86AudioMute exec pulsemixer --toggle-mute
+bindsym XF86AudioMicToggle exec bash ~/dotfiles/scripts/mute-mic.sh "--toggle-mute"
+bindsym $mod+c exec bash ~/dotfiles/scripts/mute-mic.sh "--toggle-mute"
+bindsym $mod+m exec bash ~/dotfiles/scripts/mute-mic.sh "--mute"
+bindsym $mod+equal exec pulsemixer --change-volume +5
+bindsym $mod+minus exec pulsemixer --change-volume -5
+bindsym $mod+0 exec pulsemixer --toggle-mute
+bindsym $mod+Shift+0 exec pulsemixer --id source-1 --toggle-mute
+
+#cmus controls
+bindsym $mod+p exec cmus-remote --pause
+bindsym $mod+bracketleft exec cmus-remote --prev
+bindsym $mod+bracketright exec cmus-remote --next
+bindsym $mod+Shift+bracketleft exec cmus-remote -C "seek -10"
+bindsym $mod+Shift+bracketright exec cmus-remote -C "seek +10"
+
+#backlight controls (laptop monitor)
+bindsym XF86MonBrightnessDown exec xbacklight -dec 4
+bindsym XF86MonBrightnessUp exec xbacklight -inc 4
+bindsym $mod+Shift+minus exec xbacklight -dec 4
+bindsym $mod+Shift+plus exec xbacklight -inc 4
+
+bindsym $mod+Ctrl+Escape exec i3lock --blur=2
+bindsym XF86Sleep exec i3lock --blur=4 && echo mem > /sys/power/state
+bindsym XF86TouchpadToggle exec synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+bindsym Print exec scrot -e 'mv $f ~/Pictures/screenshots/'
+bindsym $mod+Print exec scrot -u -e 'mv $f ~/Pictures/screenshots/'
+# bindsym $mod+Shift+Print exec alacritty --command "scrot -s -e 'mv \$f ~/Pictures/screenshots/'"
+bindsym $mod+Shift+Print exec bash ~/dotfiles/scripts/gimp_screenshot.sh
+
+# vi keybindings
+set $vi_left h
+set $vi_down j
+set $vi_up k
+set $vi_right l
+
+# change focus
+bindsym $mod+$vi_left focus left
+bindsym $mod+$vi_down focus down
+bindsym $mod+$vi_up focus up
+bindsym $mod+$vi_right focus right
+
+# move focused window
+bindsym $mod+Shift+$vi_left move left
+bindsym $mod+Shift+$vi_down move down
+bindsym $mod+Shift+$vi_up move up
+bindsym $mod+Shift+$vi_right move right
+
+# split in burger (horizontal) orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+q layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+#bindsym $mod+p focus parent
+
+workspace 1 output primary
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+bindsym $mod+Tab workspace back_and_forth
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+# adjust displays
+bindsym $mod+Shift+m exec bash ~/dotfiles/scripts/display_setup.sh
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym $vi_left resize shrink width 2 px or 2 ppt
+    bindsym $vi_up resize grow height 2 px or 2 ppt
+    bindsym $vi_down resize shrink height 2 px or 2 ppt
+    bindsym $vi_right resize grow width 2 px or 2 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 2 px or 2 ppt
+    bindsym Down resize grow height 2 px or 2 ppt
+    bindsym Up resize shrink height 2 px or 2 ppt
+    bindsym Right resize grow width 2 px or 2 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# vim:filetype=i3
