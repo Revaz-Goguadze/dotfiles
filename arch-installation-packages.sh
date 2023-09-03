@@ -63,3 +63,29 @@ fi
 cp "$source_file" "$destination_directory/"
 
 cp -r .config .font .icons /home/Documents
+
+# Ask the user if they want to install fonts
+read -p "Do you want to install fonts? (Y/N): " install_fonts_choice
+
+if [ "$install_fonts_choice" == "Y" ] || [ "$install_fonts_choice" == "y" ]; then
+    # Run the install-fonts.sh script
+    ./install-fonts.sh
+    echo "Fonts installed."
+else
+    echo "Skipping font installation."
+fi
+
+# Ask the user if they want install opt-apps
+read -p "Do you want to install optional apps? (Y/N): " install_opt_choice
+
+if [ "$install_opt_choice" == "Y" ] || [ "$install_opt_choice" == "y" ]; then
+    # Run the install-fonts.sh script
+    ./instll-opt-apps.sh
+    echo "Apss installed."
+else
+    echo "Skipping Apps installation."
+fi
+
+echo "Script completed."
+
+
