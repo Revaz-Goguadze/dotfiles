@@ -1,0 +1,1 @@
+font pango:Hack Nerd Font Regular 14

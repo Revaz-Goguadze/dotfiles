@@ -4,6 +4,8 @@ set $mod Mod4
 
 #default keyboard repeat is too slow for me
 exec xset r 8 rate 120 50
+# Run command safeeyes
+exec /home/coder/env/bin/safeeyes
 #AUTOSTART STUFF
 exec --no-startup-id bash ~/dotfiles/scripts/display_setup.sh
 exec_always --no-startup-id feh --bg-scale ~/Downloads/wallhaven-1p398w_1920x1080.png
@@ -11,10 +13,9 @@ exec_always --no-startup-id polybar
 exec_always --no-startup-id picom
 exec_always --no-startup-id xinput set-button-map 9 1 3 2 4 5 6 7 8 9
 exec_always --no-startup-id xinput set-button-map 10 1 3 2 4 5 6 7 8 9
-exec_always --no-startup-id safeeyes
 
 #Font for window titles.
-font pango:Hack Nerd Font Regular 14
+font pango:Nimbus Mono PS
 #Colors
 set $back               #282C34
 set $primary            #ABB2BF
@@ -54,8 +55,8 @@ bindsym $mod+z [class="Alacritty"] scratchpad show
 bindsym $mod+Shift+z scratchpad show
 
 # i3-gaps stuff
-gaps inner 12
-gaps outer 12
+gaps inner 15
+gaps outer 0
 smart_borders on
 new_window none
 

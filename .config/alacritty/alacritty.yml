@@ -5,7 +5,7 @@ scrolling:
   history: 15000
 font:
   normal:
-    family: Hack Nerd Font
+    family: Nimbus Mono PS
     style: Regular
   size: 15
   glyph_offset:
