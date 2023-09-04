@@ -12,13 +12,14 @@ sleep 0.2
 echo "Started ..."
 sleep 0.5
 
+sudo pacman -S --noconfirm --needed base-devel
 # List of packages to install using pacman
 packages_to_install=(
-    lazygit git spectacle vim xarchiver p7zip zip bzip2 gzip tar unzip unrar zsh vi upower gparted tmux thunar ruby python-pip openvpn neofetch htop vlc dmenu rofi feh libinput intel-ucode mesa base-devel wget i3 i3-gaps ranger coreutils p7zip ripgrep tpm2-tools tpm2-tss pipewire-pulse ly nodejs npm typescript-language-server bash-language-server python-lsp-server yaml-language-server reflector firefox leafpad ruby-bundler
+    lazygit git spectacle vim xarchiver p7zip zip bzip2 gzip tar unzip unrar zsh vi upower gparted tmux thunar ruby python-pip openvpn neofetch htop vlc dmenu rofi feh libinput intel-ucode mesa base-devel wget i3 i3-gaps ranger coreutils p7zip ripgrep tpm2-tools tpm2-tss ly nodejs npm typescript-language-server bash-language-server python-lsp-server yaml-language-server reflector firefox leafpad ruby-bundler
 )
 
 # Install packages using pacman
-sudo pacman -S --noconfirm --needed "${packages_to_install[@]}"
+sudo pacman -S --needed "${packages_to_install[@]}"
 
 # Install Yay
 git clone https://aur.archlinux.org/yay.git
@@ -37,9 +38,10 @@ read -p "Do you want add blackarch rep? (Y/N): " choice
 
 if [ "$choice" == "Y" ] || [ "$choice" == "y" ]; then
     # Add BlackArch repository
-    echo "[blackarch]" | sudo tee -a /etc/pacman.conf
-    echo "Server = https://mirror.blackarch.org/\$repo/os/\$arch" | sudo tee -a /etc/pacman.conf
-
+    curl -O https://blackarch.org/strap.sh
+    chmod +x strap.sh
+    sudo ./strap.sh
+    rm strap.sh
     # Update package database
     sudo pacman -Syy
     echo "BlackArch repository added."
@@ -69,7 +71,7 @@ read -p "Do you want to install fonts? (Y/N): " install_fonts_choice
 
 if [ "$install_fonts_choice" == "Y" ] || [ "$install_fonts_choice" == "y" ]; then
     # Run the install-fonts.sh script
-    ./install-fonts.sh
+    bash ./install-fonts.sh
     echo "Fonts installed."
 else
     echo "Skipping font installation."
@@ -80,7 +82,7 @@ read -p "Do you want to install optional apps? (Y/N): " install_opt_choice
 
 if [ "$install_opt_choice" == "Y" ] || [ "$install_opt_choice" == "y" ]; then
     # Run the install-fonts.sh script
-    ./instll-opt-apps.sh
+    bash ./instll-opt-apps.sh
     echo "Apss installed."
 else
     echo "Skipping Apps installation."
