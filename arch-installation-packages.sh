@@ -15,7 +15,7 @@ sleep 0.5
 sudo pacman -S --noconfirm --needed base-devel
 # List of packages to install using pacman
 packages_to_install=(
-    lazygit git spectacle vim xarchiver composer picom php julia luarocks fd p7zip zip bzip2 gzip tar unzip unrar zsh vi upower gparted tmux thunar ruby python-pip openvpn neofetch htop vlc dmenu rofi feh libinput intel-ucode mesa base-devel wget i3 i3-gaps ranger coreutils p7zip ripgrep tpm2-tools tpm2-tss ly nodejs npm typescript-language-server bash-language-server python-lsp-server yaml-language-server reflector firefox leafpad ruby-bundler
+    polybar lazygit git spectacle vim xarchiver composer picom php julia luarocks fd p7zip zip bzip2 gzip tar unzip unrar zsh vi upower gparted tmux thunar ruby python-pip openvpn neofetch htop vlc dmenu rofi feh libinput intel-ucode mesa base-devel wget i3 i3-gaps ranger coreutils p7zip ripgrep tpm2-tools tpm2-tss ly nodejs npm typescript-language-server bash-language-server python-lsp-server yaml-language-server reflector firefox leafpad ruby-bundler
 )
 
 # Install packages using pacman
