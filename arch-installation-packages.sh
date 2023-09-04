@@ -64,7 +64,9 @@ fi
 # Copy the file to the destination directory
 cp "$source_file" "$destination_directory/"
 
-cp -r .config .font .icons /home/Documents
+cp -r .config $home/
+cp -r .font $home/
+cp -r .icons $home/
 
 # Ask the user if they want to install fonts
 read -p "Do you want to install fonts? (Y/N): " install_fonts_choice
