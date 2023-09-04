@@ -1,3 +1,3 @@
-!#/bin/bash
+#!/bin/bash
 
-yay -S weektodo 
+yay -S weektodo
