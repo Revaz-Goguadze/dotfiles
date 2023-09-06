@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:/home/coder/.local/share/gem/ruby/3.0.0/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -72,13 +73,13 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-syntax-highlighting	
+	zsh-syntax-highlighting
 	zsh-autosuggestions
 	zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
-source ~/env/bin/activate
+source ~/.env/bin/activate
 
 # User configuration
 
@@ -122,6 +123,12 @@ alias yis='yay -S'
 
 # clear terminal
 alias cls='clear'
+
+# brightness
+alias brightness='sudo vim /sys/class/backlight/intel_backlight/brightness'
+
+# battery
+alias battery='cat /sys/class/power_supply/BAT1/capacity'
 
   ### ZNT's installer added snippet ###
   fpath=( "$fpath[@]" "$HOME/.config/znt/zsh-navigation-tools" )
