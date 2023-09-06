@@ -1,3 +1,3 @@
 #!/bin/bash
 
-yay -S --needed safeeyes autotiling weektodo stacer brave-bin visual-studio-code-bin stacer bleachbit
+yay -S --needed discord_arch_electron safeeyes autotiling weektodo stacer brave-bin visual-studio-code-bin stacer bleachbit
