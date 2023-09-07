@@ -12,7 +12,6 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Customize Your Desktop](#customize-your-desktop)
   - [Modify Dotfiles](#modify-dotfiles)
   - [Install Additional Packages](#install-additional-packages)
   - [Boost Productivity](#boost-productivity)
