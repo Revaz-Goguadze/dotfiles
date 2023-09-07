@@ -53,7 +53,7 @@ Welcome to **My Dots**, your one-stop solution for a beautifully customized Linu
 2. **Run the Installation Script**
     ```bash
     cd mydots
-    ./install.sh
+    ./arch-installation-packages.sh
     The installation script will handle the configuration of your dotfiles and install necessary packages if you're on Arch Linux.
 3. **Enjoy Your Customized Linux Setup!**
 
