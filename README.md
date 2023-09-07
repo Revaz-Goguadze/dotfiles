@@ -48,11 +48,12 @@ Welcome to **My Dots**, your one-stop solution for a beautifully customized Linu
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/Revaz-Goguadze/mydots.git
-   cd mydots
+   git clone https://github.com/Revaz-Goguadze/dotfiles.git
 2. **Run the Installation Script**
+
     ```bash
-    cd mydots
+    cd dotfiles
+    chmod +x arch-installation-packages.sh
     ./arch-installation-packages.sh
     The installation script will handle the configuration of your dotfiles and install necessary packages if you're on Arch Linux.
 3. **Enjoy Your Customized Linux Setup!**
