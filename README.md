@@ -62,17 +62,13 @@ Welcome to **My Dots**, your one-stop solution for a beautifully customized Linu
 
 Your newly configured Linux environment is ready to go! Here are some common tasks to get you started:
 
-### Customize Your Desktop
-
-🔍 Explore and personalize your desktop environment with the pre-installed themes and wallpapers.
-
 ### Modify Dotfiles
 
 🖥️ Customize the configuration of various applications by editing the dotfiles found in the `.config`, `.fonts`, and `.icons` directories to suit your preferences.
 
 ### Install Additional Packages
 
-📦 Use the `arch-packages-install.sh` script to effortlessly install additional Arch Linux packages, enhancing your system's capabilities.
+📦 Use the `install-opt-packages.sh` script to effortlessly install additional Arch Linux packages, enhancing your system's capabilities.
 
 ### Boost Productivity
 
