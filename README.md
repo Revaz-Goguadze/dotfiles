@@ -90,5 +90,3 @@ Contributions are welcome! If you have improvements, new features, or bug fixes 
 This project is licensed under the MIT License.
 
 ---
-
-Made with ❤️ by Revaz Goguadze
